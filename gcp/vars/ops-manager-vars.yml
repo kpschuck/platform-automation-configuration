@@ -9,16 +9,16 @@
 
 gcp:
   gcp_service_account: ((gcp_service_account))
-  project: fe-xzheng
+  project: pa-kschuck
   region: us-central1
   zone: us-central1-a
-  vm_name: ops-manager-vm               # default: OpsManager-vm
+  vm_name: ops-manager                  # default: OpsManager-vm
   # For SharedVPC: projects/[HOST_PROJECT_ID]/regions/[REGION]/subnetworks/[SUBNET]
-  vpc_subnet: pcf-gcp-management-subnet
+  vpc_subnet: gcp-infrastructure-subnet
   tags: ops-manager                     # make sure firewall allow 443/22 for network tag of "ops-manager"
   custom_cpu: 4                         # default:  8
-  custom_memory: 16                     # default: 16
+  custom_memory: 8                      # default: 16
   boot_disk_size: 100                   # default: 400
   # At least one IP address (public or private) needs to be assigned to the VM.
   public_ip: ((opsman_public_ip))
-  private_ip: 10.0.2.3
+  private_ip: ((opsman_private_ip))
